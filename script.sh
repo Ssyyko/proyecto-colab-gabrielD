@@ -6,7 +6,7 @@ echo "1) Mostrar archivos en el directorio actual"
 
 echo "2) Mostrar fecha y hora" 
 
-echo "3) Saludar al usuario" 
+echo "3) Mostrar contenido de un archivo" 
 
 echo "4) Salir" 
 
@@ -22,9 +22,17 @@ case $opcion in
 
     3) 
 
-        read -p "Introduce tu nombre: " nombre 
+        read -p "Introduce el nombre del archivo: " archivo 
 
-        echo "¡Hola, $nombre! Espero que disfrutes aprendiendo Git." 
+        if [[ -f "$archivo" ]]; then 
+
+            cat "$archivo" 
+
+        else 
+
+            echo "El archivo no existe." 
+
+        fi 
 
         ;; 
 
